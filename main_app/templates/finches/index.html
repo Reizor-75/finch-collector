@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+{% endblock %}
+
+{% block content %}
+
+<section class="page-header">
+  <h1>Finches List</h1>
+</section>
+
+<section class="card-container">
+  {% for finch in finches %}
+    <div class="card">
+      <div class="card-content">
+        <div class="card-img-container">
+
+        </div>
+        <h2 class="card-title">A {{ finch.name }}</h2>
+          <p>Eats {{ finch.diet }} and has a {{ finch.beak }}</p>
+          <p>Can be found {{ finch.habitat }}.</p>
+        <p><small>{{ finch.description }}</small></p>
+      </div>
+    </div>
+  {% endfor %}
+</section>
+
+{% endblock %}
