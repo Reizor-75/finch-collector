@@ -2,6 +2,11 @@
 {% load static %}
 
 {% block head %}
+<link 
+rel="stylesheet"
+type="text/css"
+href="{% static 'css/finches/index.css' %}"
+/>
 {% endblock %}
 
 {% block content %}
@@ -17,7 +22,7 @@
         <div class="card-img-container">
 
         </div>
-        <h2 class="card-title">A {{ finch.name }}</h2>
+        <h2 class="card-title">The {{ finch.name }}</h2>
           <p>Eats {{ finch.diet }} and has a {{ finch.beak }}</p>
           <p>Can be found {{ finch.habitat }}.</p>
         <p><small>{{ finch.description }}</small></p>
