@@ -19,6 +19,10 @@
     <h2>Has a {{ finch.beak }} and eats {{ finch.diet }}</h2>
     <h2>Can be found {{ finch.habitat }}.<h2>
     <p>{{ finch.description }}</p>
+    <div class="finch-actions">
+      <a href="{% url 'finch-update' finch.id %}" class="btn warn">Edit</a>
+      <a href="{% url 'finch-delete' finch.id %}" class="btn danger">Delete</a>
+    </div>
   </div>
 </section>
 
