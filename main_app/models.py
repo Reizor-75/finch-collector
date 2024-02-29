@@ -43,3 +43,13 @@ class Feeding(models.Model):
   
   class Meta:
     ordering = ['-date']
+
+class Weapon(models.Model):
+  name = models.CharField(max_length=50)
+  color = models.CharField(max_length=20)
+
+  def __str__(self):
+    return self.name
+
+  def get_absolute_url(self):
+    return reverse('weapon-detail', kwargs={'pk': self.id})

@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import Finch
+from .models import Finch, Weapon
 from .forms import FeedingForm
+from django.views.generic import ListView, DetailView
 
 # Create your views here.
 # class Finch:  # Note that parens are optional if not inheriting from another class
@@ -56,3 +57,13 @@ class FinchUpdate(UpdateView):
 class FinchDelete(DeleteView):
   model = Finch
   success_url = '/finches/'
+
+class WeaponCreate(CreateView):
+  model = Weapon
+  fields = '__all__'
+
+class WeaponList(ListView):
+  model = Weapon
+
+class WeaponDetail(DetailView):
+  model = Weapon
