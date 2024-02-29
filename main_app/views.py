@@ -67,3 +67,11 @@ class WeaponList(ListView):
 
 class WeaponDetail(DetailView):
   model = Weapon
+
+class WeaponUpdate(UpdateView):
+  model = Weapon
+  fields = ['name', 'color']
+
+class WeaponDelete(DeleteView):
+  model = Weapon
+  success_url = '/weapons/'

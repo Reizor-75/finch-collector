@@ -18,7 +18,8 @@
     <p>A {{ weapon.color }} toy</p>
   </div>
 </div>
-{% comment %} <a href="{% url 'weapon-update' weapon.id %}" class="btn warn">Edit</a>
-<a href="{% url 'weapon-delete' weapon.id %}" class="btn danger">Delete</a> {% endcomment %}
+
+<a href="{% url 'weapon-update' weapon.id %}" class="btn warn">Edit</a>
+<a href="{% url 'weapon-delete' weapon.id %}" class="btn danger">Delete</a>
 
 {% endblock %}
