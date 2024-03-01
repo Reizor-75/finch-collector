@@ -36,3 +36,17 @@
   margin: 5px 0;
   font-size: var(--font-reg);
 }
+
+.card-img-container{  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: 250px;
+  overflow: hidden;
+}
+
+img{
+  width: 100%;
+  height: 100%;
+  background-color: darkcyan;
+}

@@ -38,7 +38,7 @@ src="https://cdn.jsdelivr.net/npm/mc-datepicker/dist/mc-calendar.min.js"
   </div>
 </section>
 
-<div class="feedings-toy-container">
+<div class="feedings-weapon-container">
   <section class="feedings">
     <div class="subsection-title">
       <h2>Feedings</h2>
@@ -89,6 +89,56 @@ src="https://cdn.jsdelivr.net/npm/mc-datepicker/dist/mc-calendar.min.js"
       </div>
     {% endif %}
   </section>
+
+  <section class="weapons">
+    <div class="subsection-title">
+      <h2>Weapons</h2>
+    </div>
+    <h3>{{ finch.name }}'s Weapons</h3>
+    <div class="subsection-content">
+      {% if finch.weapons.count %}
+        {% for weapon in finch.weapons.all %}
+          <div class="weapon-container">
+            <div 
+              class="color-block"
+              style="background-color: {{ weapon.color }}"
+            ></div>
+            <a href="{% url 'weapon-detail' weapon.id %}">
+              <p>A {{ weapon.color }} {{ weapon.name }}</p>
+            </a>
+          </div>
+        {% endfor %}
+      {% else %}
+        <p class="no-weapons">{{finch.name}} doesn't have any weapons 😞</p>
+      {% endif %}
+    </div>
+    <h3>Available Weapons</h3>
+    <div class="subsection-content">
+
+      {% if weapons.count %}
+        {% for weapon in weapons.all %}
+          <div class="weapon-container">
+            <div 
+              class="color-block"
+              style="background-color: {{ weapon.color }}"
+            ></div>
+            <a href="{% url 'weapon-detail' weapon.id %}">
+              <p>A {{ weapon.color }} {{ weapon.name }}</p>
+            </a>
+            <form action="{% url 'assoc-weapon' finch.id weapon.id %}" method="post">
+              {% csrf_token %}
+              <button type="submit" class="btn submit">Give Weapon</button>
+            </form>
+          </div>
+        {% endfor %}
+      {% else %}
+        <p class="all-toys">
+          {{cat.name}} already has all the available Weapons 🥳
+        </p>
+      {% endif %}
+    </div>
+  </section>
+  
 </div>
 
 {% endblock %}

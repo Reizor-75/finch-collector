@@ -21,7 +21,17 @@ href="{% static 'css/finches/index.css' %}"
       <a href="{% url 'finch-detail' finch.id %}">
         <div class="card-content">
           <div class="card-img-container">
-
+            {% if 'Finch' in finch.name or 'finch' in finch.name %}
+            <img 
+              src="{% static 'images/finch.jpg' %}" 
+              alt="A Generic Finch"
+            >
+            {% elif 'Pigeon' in finch.name %}            
+            <img 
+              src="{% static 'images/pigeon.png' %}" 
+              alt="A Generic Finch"
+            >
+            {% endif %}
           </div>
           <h2 class="card-title">The {{ finch.name }}</h2>
             <p>Has a {{ finch.beak }} and eats {{ finch.diet }}</p>
