@@ -3,6 +3,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Finch, Weapon
 from .forms import FeedingForm
 from django.views.generic import ListView, DetailView
+from django.contrib.auth.views import LoginView
 
 # Create your views here.
 # class Finch:  # Note that parens are optional if not inheriting from another class
@@ -20,8 +21,8 @@ from django.views.generic import ListView, DetailView
 #   Finch('Pigeon', 'He got lost', 'Trash', 'Probing Beak', 'Literally Everywhere' )
 # ]
 
-def home(request):
-  return render(request, 'home.html')
+class Home(LoginView):
+  template_name = 'home.html'
 
 def about(request):
   return render(request, 'about.html')

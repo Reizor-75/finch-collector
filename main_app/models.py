@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from datetime import date
+from django.contrib.auth.models import User
 # Create your models here.
 
 MEALS = (
@@ -30,7 +31,8 @@ class Finch(models.Model):
   beak = models.CharField(max_length=100)
   habitat = models.CharField(max_length=100)
   description = models.TextField(max_length=250)
-  weapons = models.ManyToManyField(Weapon)
+  weapons = models.ManyToManyField(Weapon) 
+  user = models.ForeignKey(User, on_delete=models.CASCADE)
 
   def __str__(self):
     return self.name

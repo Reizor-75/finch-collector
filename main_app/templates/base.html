@@ -17,12 +17,18 @@
       </a>
     </div>
     <nav>
-      <ul>        
-        <li><a href="{% url 'finch-index' %}">All Finches</a></li>
-        <li><a href="{% url 'finch-create' %}">Add a Finch</a></li>
-        <li><a href="{% url 'weapon-index' %}">All Weapons</a></li>
-        <li><a href="{% url 'weapon-create' %}">Add a Weapon</a></li>
-        <li><a href="{% url 'about' %}">About</a></li>
+      <ul
+        {% if user.is_authenticated %}>        
+          <li><a href="{% url 'finch-index' %}">All Finches</a></li>
+          <li><a href="{% url 'finch-create' %}">Add a Finch</a></li>
+          <li><a href="{% url 'weapon-index' %}">All Weapons</a></li>
+          <li><a href="{% url 'weapon-create' %}">Add a Weapon</a></li>
+          <li><a href="{% url 'about' %}">About</a>
+          </li><li><a href="{% url 'logout' %}">Log out</a></li>
+        {% else %}
+          <li><a href="{% url 'about' %}">About</a></li>
+          <li><a href="{% url 'home' %}">Login</a></li>
+        {% endif %}
       </ul>
     </nav>
   </header>
