@@ -7,7 +7,7 @@ ENV PYTHONUNBUFFERED 1
 
 # install psycopg2 dependencies.
 RUN apt-get update && apt-get install -y \
-    libpq-dev \git
+    libpq-dev \
     gcc \
     && rm -rf /var/lib/apt/lists/*
 
